@@ -1,4 +1,4 @@
-# Personality Insights Twitter Java Sample
+# IBM Watson Personality Insights Twitter Java Sample
 
 This sample shows how to get Twitter data using the [Twitter REST API](https://dev.twitter.com/rest/public) 
 (via the [Twitter4j client library](http://twitter4j.org/en/index.html)) and submit it to the Personality Insights Service.
