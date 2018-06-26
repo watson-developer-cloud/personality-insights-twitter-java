@@ -1,0 +1,28 @@
+language: java
+jdk:
+  - oraclejdk8
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+install: true
+
+script:
+  - ./gradlew checkstyleMain
+  - ./gradlew fatJar
+
+deploy:
+  - provider: releases
+    api_key: ${GITHUB_TOKEN}
+    file: personality-insights-twitter-java/build/libs/personality-insights-twitter-java-all-${TRAVIS_BRANCH}.jar
+    skip_cleanup: true
+    on:
+      repo: watson-developer-cloud/personality-insights-twitter-java
+      tags: true

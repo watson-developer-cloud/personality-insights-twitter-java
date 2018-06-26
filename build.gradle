@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'checkstyle'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
@@ -15,15 +16,39 @@ eclipse {
     }
 }
 
-dependencies {
-    compile 'org.twitter4j:twitter4j-core:4.0.3'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
-    compile 'com.sun.jersey:jersey-client:1.19'
-    compile 'commons-io:commons-io:2.4'
-    compile 'org.apache.commons:commons-lang3:3.3.2'
+
+checkstyle {
+  ignoreFailures = false
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.5'
+checkstyleMain {
+  ignoreFailures = false
+}
+
+checkstyleTest {
+  ignoreFailures = false
+}
+
+checkstyle {
+    configFile = rootProject.file('checkstyle.xml')
+    ignoreFailures = false
+}
+
+//create a single Jar with all dependencies
+task fatJar(type: Jar) {
+	manifest {
+        attributes 'Implementation-Title': 'Personality Insights Twitter sample',
+        	'Implementation-Version': version,
+        	'Main-Class': 'com.ibm.watson.personality_insights.twitter.TwitterAnalyzer'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+
+dependencies {
+	compile 'com.ibm.watson.developer_cloud:java-sdk:6.1.0'
+  compile 'org.twitter4j:twitter4j-core:4.0.6'
 }
 

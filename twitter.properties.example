@@ -7,6 +7,7 @@
 # With the application created, navigate to the API Keys page and click "Create my access token". 
 # You now have the four necessary credentials. Copy the API key, API secret, 
 # Access token, and Access token secret here.
+
 # NOTE: API key and API secret go in the consumerKey and consumerSecret fields.
 twitter.consumerKey=
 twitter.consumerSecret=
@@ -15,13 +16,15 @@ twitter.accessSecret=
 
 
 # Personality Insights credentials and URL
-#
-# You can obtain these credentials by binding a PI service to an application in bluemix and 
-# and clicking the "show credentials" link on the service in the application dashboard.
-# Or you can use "cf env <application name>" from the command line to get the credentials.
 
-pi.url=
-pi.username=
-pi.password=
+# Username and Password
+personality_insights.username=
+personality_insights.password=
 
-#NOTE:  Whitespace at the end of any of the credentials' lines will cause a auth failure
+# IAM API Key
+personality_insights.iam_apikey=
+
+# URL
+personality_insights.url=
+
+#NOTE: Whitespace at the end of any of the credentials' lines will cause a auth failure
