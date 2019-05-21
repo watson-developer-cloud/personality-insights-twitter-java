@@ -1,5 +1,7 @@
 # IBM Watson Personality Insights Twitter Java Sample [![Build Status](https://travis-ci.org/watson-developer-cloud/personality-insights-twitter-java.svg?branch=master)](https://travis-ci.org/watson-developer-cloud/personality-insights-twitter-java)
 
+## DEPRECATED: this repo is no longer actively maintained. It can still be used as reference, but may contain outdated or unpatched code.
+
 This sample shows how to get Twitter data using the [Twitter REST API](https://dev.twitter.com/rest/public)
 (via the [Twitter4j client library](http://twitter4j.org/en/index.html)) and submit it to the
 [Personality Insights Service](https://www.ibm.com/watson/services/personality-insights/).
